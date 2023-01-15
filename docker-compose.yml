@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  app:
+    container_name: rest-api-flask
+    build:
+      context: ./App
+      dockerfile: Dockerfile
+    image: rest-api-flask:lastest
+    environment:
+      FLASK_ENV: development
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
